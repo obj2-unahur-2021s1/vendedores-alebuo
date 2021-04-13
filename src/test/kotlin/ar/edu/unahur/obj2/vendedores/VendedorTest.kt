@@ -22,6 +22,9 @@ class VendedorTest : DescribeSpec({
     }
   }
 
+
+
+
   describe("Viajante") {
     val cordoba = Provincia(2000000)
     val villaDolores = Ciudad(cordoba)
