@@ -20,10 +20,13 @@ class VendedorTest : DescribeSpec({
         vendedorFijo.puedeTrabajarEn(sanIgnacio).shouldBeFalse()
       }
     }
+    describe("esInfluyente") {
+     vendedorFijo.esInfluyente().shouldBeFalse()
+    }
+    describe("esVersatil") {
+      vendedorFijo.esVersatil().shouldBeFalse()
+    }
   }
-
-
-
 
   describe("Viajante") {
     val cordoba = Provincia(2000000)
@@ -38,5 +41,31 @@ class VendedorTest : DescribeSpec({
         viajante.puedeTrabajarEn(villaDolores).shouldBeFalse()
       }
     }
+    describe("esInfluyente") {
+      it("Un viajante solo puede ser influyente si las ciudades suman una población superior a 10 mill.") {
+        viajante.esInfluyente().shouldBeFalse()
+      }
+    }
   }
+
+  describe("ComercioCorresponsal") {
+    val cordoba = Provincia(2000000)
+    val villaDolores = Ciudad(cordoba)
+    val unComercio = ComercioCorresponsal(listOf(villaDolores))
+
+    describe("puedeTrabajarEn") {
+      it("un Comercio Corresponsal puede Trabajar En sucursal villaDolores figura en lista") {
+        unComercio.puedeTrabajarEn(villaDolores).shouldBeTrue()
+      }
+      it("un Comercio Corresponsal no puede Trabajar En sucursal sanIgnacio no figura en lista") {
+        unComercio.puedeTrabajarEn(sanIgnacio).shouldBeFalse()
+      }
+    }
+  }
+
+
+
+
+
+
 })

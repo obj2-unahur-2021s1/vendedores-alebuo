@@ -4,7 +4,7 @@ class CentroDeVendedores (val ubicacion: Ciudad){
     val vendedores = mutableListOf<Vendedor>()
     fun nuevoVendedor(vendedor: Vendedor) {
         if(vendedores.contains(vendedor)){
-            error(String = "Error: El vendedor ya esta en la lista.")
+            error("Error: El vendedor ya esta en la lista.")
         }else{
             vendedores.add(vendedor)
         }
