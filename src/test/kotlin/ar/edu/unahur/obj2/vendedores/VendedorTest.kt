@@ -61,11 +61,15 @@ class VendedorTest : DescribeSpec({
         unComercio.puedeTrabajarEn(sanIgnacio).shouldBeFalse()
       }
     }
+    describe("cantProvincias") {
+      it("una cantidad de provincias donde tiene sucursales ") {
+        (unComercio.cantProvincias()==1).shouldBeTrue()
+      }
   }
-
-
-
-
-
-
+    describe("esInfluyente") {
+      it("El comercio no trabaja en 5 ciudades ni en 3 provincias.") {
+        unComercio.esInfluyente().shouldBeFalse()
+      }
+    }
+  }
 })
